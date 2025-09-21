@@ -1,0 +1,30 @@
+{
+  "namespace": "com.jackpot.schema",
+  "type": "record",
+  "name": "BetMessage",
+  "fields": [
+    {
+      "name": "betId",
+      "type": "string",
+      "logicalType": "uuid"
+    },
+    {
+      "name": "userId",
+      "type": "string",
+      "logicalType": "uuid"
+    },
+    {
+      "name": "jackpotId",
+      "type": "string"
+    },
+    {
+      "name": "betAmount",
+      "type": "double"
+    },
+    {
+      "name": "createdAt",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    }
+  ]
+}
