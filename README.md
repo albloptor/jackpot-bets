@@ -121,6 +121,7 @@ There are some conscious design decisions that I made during the development of 
 - I decided to use integration tests with TestContainers in order to spin up a kafka cluster and schema registry and verify that the behaviour of the application is as expected, without testing internal implementation details.
 - For running the application locally, kafka, schema registry and zookeeper need to be running. For convenience, I created a docker compose file to start all three.
 - I've used Hikari in order to create a connection pool to the database. This is what is usually done in real environments.
+- I'm saving reward records for both won and lost bets. Since I didn't use a status column for bets, reward records for all evaluated bets can help us see which ones are completed.
 
 ## Improvements
 Due to time constraints, there are some things I couldn't implement in a way I normally would have. In a real-world scenario, I would have made the following improvements:
