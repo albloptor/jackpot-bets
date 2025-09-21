@@ -1,4 +1,4 @@
-# Jackpot Service
+# Jackpot Bets
 
 This is a backend application that processes bets for jackpot contributions and rewards. It's built with Java 21, Spring Boot, and uses Kafka for asynchronous message processing.
 
