@@ -46,7 +46,6 @@ repositories {
 }
 
 dependencies {
-	// Main dependencies
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -61,11 +60,9 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok:1.18.30'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
-	// Unit test dependencies (remains the same)
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation("org.spockframework:spock-spring:2.4-M6-groovy-4.0")
 
-	// Integration test dependencies
 	integrationTestImplementation 'org.springframework.boot:spring-boot-starter-test'
 	integrationTestImplementation("org.spockframework:spock-spring:2.4-M6-groovy-4.0")
 	integrationTestImplementation 'org.testcontainers:testcontainers:1.19.3'
@@ -81,14 +78,12 @@ dependencies {
 task integrationTest(type: Test) {
 	description = 'Runs integration tests.'
 	group = 'verification'
-	// Correct way to get test classes directories
 	testClassesDirs = sourceSets.integrationTest.output.classesDirs
 	classpath = sourceSets.integrationTest.runtimeClasspath
 	outputs.upToDateWhen { false }
 	shouldRunAfter test
 }
 
-// Ensure the `check` task runs integration tests as well
 check {
 	dependsOn integrationTest
 }
