@@ -25,10 +25,10 @@ This is a backend application that processes bets for jackpot contributions and 
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/jackpot-service.git](https://github.com/your-username/jackpot-service.git)
-    cd jackpot-service
+    git clone [git@github.com:albloptor/jackpot-bets.git](git@github.com:albloptor/jackpot-bets.git)
+    cd jackpotbets
     ```
-2. **Start Docker desktop or similar on your machine**
+2. **Start Docker desktop, Colima or similar on your machine**
 
 3. **Run docker compose in the root of the project**: This will spin up Kafka, Schema registry and Zookeeper locally.
     ```bash
