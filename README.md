@@ -123,11 +123,11 @@ There are some conscious design decisions that I made during the development of 
 - I've used Hikari in order to create a connection pool to the database. This is what is usually done in real environments.
 
 ## Improvements
-Due to time constraints, there are some things I couldn't implement in a way I would normally would have. In a real-world scenario, I would have made the following improvements:
+Due to time constraints, there are some things I couldn't implement in a way I normally would have. In a real-world scenario, I would have made the following improvements:
 - Move business logic to domain objects: I started creating domain objects but ended up relying on JPA entities, which leaked to the service layer. In a real-world scenario, I would have encapsulated JPA entities in repository classes and map them to Java domain objects which would be used throughout the application. I would then have moved the business logic from the service layer to the domain objects, in a DDD fashion.
 - Definitely add more tests: I would have tested more behaviours (usually I follow TDD) and I would have written unit tests for the domain classes, especially the ones with complex business logic around contribution and reward calculation.
 - Use domain objects to encapsulate UUIDs or Strings. For instance, JackpotId should be an immutable class wrapping a String or a UUID. That way it's clearer when objects are passed around as parameters.
-- Pessimistic locking when updating the jackpots. Since contention is likely in such system, I would have locked rows for update, preferring pessimistic locking to optimistic locking.
+- Pessimistic locking when updating the jackpots. Since contention is likely in such a system, I would have locked rows for update, preferring pessimistic locking to optimistic locking.
 - Use the Strategy pattern in order to inject contribution and reward calculations into each Jackpot object. That way, adding new configurations would be more scalable and cleaner over time.
 - Clean up the database schema. In some tables I've used a surrogate primary key, but in others I use business values for primary keys, like jackpot_id or bet_id.
 - Fix the KafkaConsumerSpec (it's currently ignored). I couldn't figure out why the Kafka consumer listen method wasn't being invoked as part of the integration test (it is when running the app with bootRun). It would have allowed me to properly test that inserting a record into the outbox_messages table results in an eventual insertion of a jackpot contribution record and the update of the jackpot pool.
